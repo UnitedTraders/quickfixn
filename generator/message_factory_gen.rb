@@ -1,16 +1,16 @@
 class MessageFactoryGen
-  def self.generate(messages, dir, fixver)
+  def self.generate(messages, dir, fixver, beginstring)
     destdir = File.join(dir,fixver)
     Dir.mkdir(destdir) unless File.exists?(destdir)
     file_path = File.join(destdir,"MessageFactory.cs")
     puts 'generate ' + file_path
 
-    content = gen_factory(messages,fixver)
+    content = gen_factory(messages,fixver,beginstring)
     File.open(file_path, 'w') {|f| f.puts(content)}
   end
 
 
-  def self.gen_factory(messages,fixver)
+  def self.gen_factory(messages,fixver,beginstring)
 return <<HERE
 // This is a generated file.  Don't edit it directly!
 
@@ -23,7 +23,7 @@ namespace QuickFix
     {
         public class MessageFactory : IMessageFactory
         {
-#{get_method_supported_beginstrings(messages,fixver)}
+#{get_method_supported_beginstrings(messages,beginstring)}
 			
 #{gen_method_create(messages,fixver)}
 
@@ -34,11 +34,11 @@ namespace QuickFix
 HERE
   end
 
-  def self.get_method_supported_beginstrings(messages,fixver)
+  def self.get_method_supported_beginstrings(messages,beginstring)
 return <<HERE
             public ICollection<string> GetSupportedBeginStrings()
             {
-				return new [] { BeginString.#{fixver} };
+				return new [] { BeginString.#{beginstring} };
             }
 HERE
   end

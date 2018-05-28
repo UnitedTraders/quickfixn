@@ -1080,6 +1080,11 @@ namespace QuickFix.Fields
         public const char COMPETING_DEALER_TRADES_R = 'R';
         public const char COMPETING_DEALER_TRADES_T = 'T';
         public const char PROGRAM_ORDER_NONINDEX_ARB_FOR_OTHER_AGENCY = 'Y';
+        public const char AGENCY = 'A';
+        public const char PROPRIETARY = 'G';
+        public const char INDIVIDUAL = 'I';
+        public const char RISKLESS_PRINCIPAL = 'R';
+        public const char AGENT_FOR_OTHER_MEMBER = 'W';
     }
 
 
@@ -7033,6 +7038,45 @@ namespace QuickFix.Fields
             :base(Tags.EncodedListStatusText) {}
         public EncodedListStatusText(string val)
             :base(Tags.EncodedListStatusText, val) {}
+
+    }
+
+
+    /// <summary>
+    /// StopPrice Field
+    /// </summary>/
+    public sealed class StopPrice : DecimalField
+    {
+        public StopPrice()
+            :base(Tags.StopPrice) {}
+        public StopPrice(Decimal val)
+            :base(Tags.StopPrice, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiqFlag Field
+    /// </summary>/
+    public sealed class LiqFlag : StringField
+    {
+        public LiqFlag()
+            :base(Tags.LiqFlag) {}
+        public LiqFlag(string val)
+            :base(Tags.LiqFlag, val) {}
+
+    }
+
+
+    /// <summary>
+    /// LiqFee Field
+    /// </summary>/
+    public sealed class LiqFee : DecimalField
+    {
+        public LiqFee()
+            :base(Tags.LiqFee) {}
+        public LiqFee(Decimal val)
+            :base(Tags.LiqFee, val) {}
 
     }
 

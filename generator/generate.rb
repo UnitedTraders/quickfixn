@@ -18,6 +18,8 @@ class Generator
     @fix40 = FIXDictionary.load spec('FIX40')
     @fix41 = FIXDictionary.load spec('FIX41')
     @fix42 = FIXDictionary.load spec('FIX42')
+	@fix42sterling = FIXDictionary.load spec('FIX42Sterling')
+	@fix42ib = FIXDictionary.load spec('FIX42InteractiveBrokers')
     @fix43 = FIXDictionary.load spec('FIX43')
     @fix44 = FIXDictionary.load spec('FIX44')
     @fix50 = FIXDictionary.load spec('FIX50')
@@ -39,7 +41,7 @@ class Generator
 
   def agg_fields
     field_names = (@fix40.fields.keys + @fix41.fields.keys +
-        @fix42.fields.keys + @fix43.fields.keys +
+        @fix42.fields.keys + @fix42sterling.fields.keys + @fix42ib.fields.keys + @fix43.fields.keys +
         @fix44.fields.keys + @fix50.fields.keys +
         @fix50sp1.fields.keys + @fix50sp2.fields.keys).uniq
     field_names.map {|fn| get_field_def(fn) }
@@ -53,6 +55,8 @@ class Generator
       @fix50.fields[fld_name],
       @fix44.fields[fld_name],
       @fix43.fields[fld_name],
+	  @fix42ib.fields[fld_name],
+	  @fix42sterling.fields[fld_name],
       @fix42.fields[fld_name],
       @fix41.fields[fld_name],
       @fix40.fields[fld_name]
@@ -76,26 +80,30 @@ class Generator
 
   def generate_messages
     msgs_path = File.join(@src_messages_path, 'Messages')
-    MessageGen.generate(@fix40.messages,  msgs_path, 'FIX40')
-    MessageGen.generate(@fix41.messages,  msgs_path, 'FIX41')
-    MessageGen.generate(@fix42.messages,  msgs_path, 'FIX42')
-    MessageGen.generate(@fix43.messages,  msgs_path, 'FIX43')
-    MessageGen.generate(@fix44.messages,  msgs_path, 'FIX44')
-    MessageGen.generate(@fix50.messages,  msgs_path, 'FIX50')
-    MessageGen.generate(@fix50sp1.messages,  msgs_path, 'FIX50SP1')
-    MessageGen.generate(@fix50sp2.messages,  msgs_path, 'FIX50SP2')
+    MessageGen.generate(@fix40.messages,  msgs_path, 'FIX40', 'FIX40')
+    MessageGen.generate(@fix41.messages,  msgs_path, 'FIX41', 'FIX41')
+    MessageGen.generate(@fix42.messages,  msgs_path, 'FIX42', 'FIX42')
+	MessageGen.generate(@fix42sterling.messages,  msgs_path, 'FIX42Sterling', 'FIX42')
+	MessageGen.generate(@fix42ib.messages,  msgs_path, 'FIX42InteractiveBrokers', 'FIX42')
+    MessageGen.generate(@fix43.messages,  msgs_path, 'FIX43', 'FIX43')
+    MessageGen.generate(@fix44.messages,  msgs_path, 'FIX44', 'FIX44')
+    MessageGen.generate(@fix50.messages,  msgs_path, 'FIX50', 'FIXT11')
+    MessageGen.generate(@fix50sp1.messages,  msgs_path, 'FIX50SP1', 'FIXT11')
+    MessageGen.generate(@fix50sp2.messages,  msgs_path, 'FIX50SP2', 'FIXT11')
   end
 
   def generate_message_factories
     msgs_path = File.join(@src_messages_path, 'Messages')
-    MessageFactoryGen.generate(@fix40.messages,  msgs_path, 'FIX40')
-    MessageFactoryGen.generate(@fix41.messages,  msgs_path, 'FIX41')
-    MessageFactoryGen.generate(@fix42.messages,  msgs_path, 'FIX42')
-    MessageFactoryGen.generate(@fix43.messages,  msgs_path, 'FIX43')
-    MessageFactoryGen.generate(@fix44.messages,  msgs_path, 'FIX44')
-    MessageFactoryGen.generate(@fix50.messages,  msgs_path, 'FIX50')
-    MessageFactoryGen.generate(@fix50sp1.messages,  msgs_path, 'FIX50SP1')
-    MessageFactoryGen.generate(@fix50sp2.messages,  msgs_path, 'FIX50SP2')
+    MessageFactoryGen.generate(@fix40.messages,  msgs_path, 'FIX40', 'FIX40')
+    MessageFactoryGen.generate(@fix41.messages,  msgs_path, 'FIX41', 'FIX41')
+    MessageFactoryGen.generate(@fix42.messages,  msgs_path, 'FIX42', 'FIX42')
+	MessageFactoryGen.generate(@fix42sterling.messages,  msgs_path, 'FIX42Sterling', 'FIX42')
+	MessageFactoryGen.generate(@fix42ib.messages,  msgs_path, 'FIX42InteractiveBrokers', 'FIX42')
+    MessageFactoryGen.generate(@fix43.messages,  msgs_path, 'FIX43', 'FIX43')
+    MessageFactoryGen.generate(@fix44.messages,  msgs_path, 'FIX44', 'FIX44')
+    MessageFactoryGen.generate(@fix50.messages,  msgs_path, 'FIX50', 'FIX50')
+    MessageFactoryGen.generate(@fix50sp1.messages,  msgs_path, 'FIX50SP1', 'FIXT11')
+    MessageFactoryGen.generate(@fix50sp2.messages,  msgs_path, 'FIX50SP2', 'FIXT11')
   end
 end
 

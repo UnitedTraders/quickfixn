@@ -1,11 +1,11 @@
 
 
 class MessageGen
-  def self.generate messages, dir, fixver
+  def self.generate messages, dir, fixver, beginstring
     destdir = File.join(dir, fixver)
     Dir.mkdir(destdir) unless File.exists? destdir
 
-    basemsgstr = gen_basemsg(fixver,destdir)
+    basemsgstr = gen_basemsg(fixver,beginstring,destdir)
     basemsg_path = File.join(destdir, "Message.cs")
     puts 'generate ' + basemsg_path
     File.open(basemsg_path, 'w') {|f| f.puts(basemsgstr) }
@@ -23,8 +23,7 @@ class MessageGen
     str.slice(0,1).downcase + str.slice(1,rawstr.length)
   end
 
-  def self.gen_basemsg fixver, destdir
-    beginstring = fixver.match(/^FIX50/) ? "FIXT11" : fixver
+  def self.gen_basemsg fixver, beginstring, destdir    
 <<HERE
 // This is a generated file.  Don't edit it directly!
 

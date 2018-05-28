@@ -412,6 +412,9 @@ namespace QuickFix.Fields
         public const int ListStatusText = 444;
         public const int EncodedListStatusTextLen = 445;
         public const int EncodedListStatusText = 446;
+        public const int StopPrice = 99;
+        public const int LiqFlag = 409;
+        public const int LiqFee = 409;
         public const int SecurityIDSource = 22;
         public const int IOIQty = 27;
         public const int LastQty = 32;
