@@ -2,12 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net452;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net462;netcoreapp2.0</TargetFrameworks>
     <RootNamespace>TradeClient</RootNamespace>
     <AssemblyName>TradeClient</AssemblyName>
     <Copyright>Copyright © Connamara Systems, LLC 2011</Copyright>
     <Company>Connamara Systems, LLC</Company>
     <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net452|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NET462</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
