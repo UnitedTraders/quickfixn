@@ -2,12 +2,15 @@
 
   <PropertyGroup>
     <TargetFrameworks>net462;netstandard2.0</TargetFrameworks>
+	<!-- BEGIN walkaround for https://github.com/nuget/home/issues/3891 -->
+	<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+	<!-- END walkaround for https://github.com/nuget/home/issues/3891 -->
     <Title>QuickFIX/n FIX4.2 Messages</Title>
     <PackageTitle>$(Title)</PackageTitle>
     <Description>Open-source C# implementation of QuickFIX for Sterling Trading Engine FIX protocol</Description>
     <Copyright>United Traders (c) 2009-2018</Copyright>
     <Authors>United Traders</Authors>
-    <Version>1.8.0</Version>
+    <Version>1.8.0.2</Version>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
@@ -16,7 +19,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\QuickFIXn\QuickFix.csproj" />
+    <ProjectReference Include="..\..\QuickFIXn\QuickFix.csproj" PrivateAssets="all" />
   </ItemGroup>
+  
+  <!-- BEGIN walkaround for https://github.com/nuget/home/issues/3891 -->
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+    </ItemGroup>
+  </Target>
+  <!-- END walkaround for https://github.com/nuget/home/issues/3891 -->
 
 </Project>

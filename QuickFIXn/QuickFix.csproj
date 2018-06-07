@@ -13,12 +13,8 @@
     <RootNamespace>QuickFix</RootNamespace>
     <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
-    <Reference Include="System.Web" />
-  </ItemGroup>
-
-  <ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
     <Reference Include="System.Web" />
   </ItemGroup>
 
