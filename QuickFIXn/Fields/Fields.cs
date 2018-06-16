@@ -7082,6 +7082,32 @@ namespace QuickFix.Fields
 
 
     /// <summary>
+    /// SterlingLiqFlag Field
+    /// </summary>/
+    public sealed class SterlingLiqFlag : StringField
+    {
+        public SterlingLiqFlag()
+            :base(Tags.SterlingLiqFlag) {}
+        public SterlingLiqFlag(string val)
+            :base(Tags.SterlingLiqFlag, val) {}
+
+    }
+
+
+    /// <summary>
+    /// SterlingLiqFee Field
+    /// </summary>/
+    public sealed class SterlingLiqFee : DecimalField
+    {
+        public SterlingLiqFee()
+            :base(Tags.SterlingLiqFee) {}
+        public SterlingLiqFee(Decimal val)
+            :base(Tags.SterlingLiqFee, val) {}
+
+    }
+
+
+    /// <summary>
     /// SecurityIDSource Field
     /// </summary>/
     public sealed class SecurityIDSource : StringField

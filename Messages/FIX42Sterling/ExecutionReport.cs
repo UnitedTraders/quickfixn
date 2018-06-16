@@ -2713,67 +2713,67 @@ namespace QuickFix
             { 
                 return IsSetField(Tags.Text);
             }
-            public QuickFix.Fields.LiqFlag LiqFlag
+            public QuickFix.Fields.SterlingLiqFlag SterlingLiqFlag
             { 
                 get 
                 {
-                    QuickFix.Fields.LiqFlag val = new QuickFix.Fields.LiqFlag();
+                    QuickFix.Fields.SterlingLiqFlag val = new QuickFix.Fields.SterlingLiqFlag();
                     GetField(val);
                     return val;
                 }
                 set { SetField(value); }
             }
             
-            public void Set(QuickFix.Fields.LiqFlag val) 
+            public void Set(QuickFix.Fields.SterlingLiqFlag val) 
             { 
-                this.LiqFlag = val;
+                this.SterlingLiqFlag = val;
             }
             
-            public QuickFix.Fields.LiqFlag Get(QuickFix.Fields.LiqFlag val) 
+            public QuickFix.Fields.SterlingLiqFlag Get(QuickFix.Fields.SterlingLiqFlag val) 
             { 
                 GetField(val);
                 return val;
             }
             
-            public bool IsSet(QuickFix.Fields.LiqFlag val) 
+            public bool IsSet(QuickFix.Fields.SterlingLiqFlag val) 
             { 
-                return IsSetLiqFlag();
+                return IsSetSterlingLiqFlag();
             }
             
-            public bool IsSetLiqFlag() 
+            public bool IsSetSterlingLiqFlag() 
             { 
-                return IsSetField(Tags.LiqFlag);
+                return IsSetField(Tags.SterlingLiqFlag);
             }
-            public QuickFix.Fields.LiqFee LiqFee
+            public QuickFix.Fields.SterlingLiqFee SterlingLiqFee
             { 
                 get 
                 {
-                    QuickFix.Fields.LiqFee val = new QuickFix.Fields.LiqFee();
+                    QuickFix.Fields.SterlingLiqFee val = new QuickFix.Fields.SterlingLiqFee();
                     GetField(val);
                     return val;
                 }
                 set { SetField(value); }
             }
             
-            public void Set(QuickFix.Fields.LiqFee val) 
+            public void Set(QuickFix.Fields.SterlingLiqFee val) 
             { 
-                this.LiqFee = val;
+                this.SterlingLiqFee = val;
             }
             
-            public QuickFix.Fields.LiqFee Get(QuickFix.Fields.LiqFee val) 
+            public QuickFix.Fields.SterlingLiqFee Get(QuickFix.Fields.SterlingLiqFee val) 
             { 
                 GetField(val);
                 return val;
             }
             
-            public bool IsSet(QuickFix.Fields.LiqFee val) 
+            public bool IsSet(QuickFix.Fields.SterlingLiqFee val) 
             { 
-                return IsSetLiqFee();
+                return IsSetSterlingLiqFee();
             }
             
-            public bool IsSetLiqFee() 
+            public bool IsSetSterlingLiqFee() 
             { 
-                return IsSetField(Tags.LiqFee);
+                return IsSetField(Tags.SterlingLiqFee);
             }
             public QuickFix.Fields.EncodedTextLen EncodedTextLen
             { 

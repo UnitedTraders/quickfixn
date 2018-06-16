@@ -11,7 +11,7 @@ namespace QuickFix
         {
             public ICollection<string> GetSupportedBeginStrings()
             {
-				return new [] { BeginString.FIX50SP2 };
+				return new [] { BeginString.FIXT11 };
             }
 
 			

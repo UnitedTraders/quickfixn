@@ -1012,8 +1012,8 @@
       <field name="OpenClose" required="N"/>
       <field name="MaxShow" required="N"/>
       <field name="Text" required="N"/>
-      <field name="LiqFlag" required="N"/>
-      <field name="LiqFee" required="N"/>
+      <field name="SterlingLiqFlag" required="N"/>
+      <field name="SterlingLiqFee" required="N"/>
       <field name="EncodedTextLen" required="N"/>
       <field name="EncodedText" required="N"/>
       <field name="FutSettDate2" required="N"/>
@@ -2591,6 +2591,8 @@
     <field number="409" name="LiquidityIndType" type="INT"/>
     <field number="409" name="LiqFlag" type="STRING"/>
     <field number="409" name="LiqFee" type="FLOAT"/>
+	<field number="9730" name="SterlingLiqFlag" type="STRING"/>
+    <field number="9731" name="SterlingLiqFee" type="FLOAT"/>
     <field number="410" name="WtAverageLiquidity" type="FLOAT"/>
     <field number="411" name="ExchangeForPhysical" type="BOOLEAN">
       <value enum="Y" description="TRUE"/>
