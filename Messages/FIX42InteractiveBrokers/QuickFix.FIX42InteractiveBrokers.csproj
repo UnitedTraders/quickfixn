@@ -10,7 +10,7 @@
     <Description>Open-source C# implementation of QuickFIX for Interactive Brokers FIX protocol</Description>
     <Copyright>United Traders (c) 2009-2018</Copyright>
     <Authors>United Traders</Authors>
-    <Version>1.8.0.2</Version>
+    <Version>1.8.0.3</Version>
     <Platforms>AnyCPU;x64</Platforms>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
@@ -20,12 +20,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\QuickFIXn\QuickFix.csproj" PrivateAssets="all" />
+	<None Include="$(ProjectDir)..\..\spec\fix\FIX42InteractiveBrokers.xml" Pack="true">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
   <!-- BEGIN walkaround for https://github.com/nuget/home/issues/3891 -->
   <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
     <ItemGroup>
-      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
     </ItemGroup>
   </Target>
   <!-- END walkaround for https://github.com/nuget/home/issues/3891 -->
