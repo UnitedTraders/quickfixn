@@ -1021,6 +1021,7 @@
       <field name="ClearingFirm" required="N"/>
       <field name="ClearingAccount" required="N"/>
       <field name="MultiLegReportingType" required="N"/>
+      <field name="LocateReqd" required="N"/>
     </message>
     <message name="DontKnowTrade" msgtype="Q" msgcat="app">
       <field name="OrderID" required="Y"/>

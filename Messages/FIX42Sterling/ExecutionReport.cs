@@ -2992,6 +2992,37 @@ namespace QuickFix
             { 
                 return IsSetField(Tags.MultiLegReportingType);
             }
+            public QuickFix.Fields.LocateReqd LocateReqd
+            { 
+                get 
+                {
+                    QuickFix.Fields.LocateReqd val = new QuickFix.Fields.LocateReqd();
+                    GetField(val);
+                    return val;
+                }
+                set { SetField(value); }
+            }
+            
+            public void Set(QuickFix.Fields.LocateReqd val) 
+            { 
+                this.LocateReqd = val;
+            }
+            
+            public QuickFix.Fields.LocateReqd Get(QuickFix.Fields.LocateReqd val) 
+            { 
+                GetField(val);
+                return val;
+            }
+            
+            public bool IsSet(QuickFix.Fields.LocateReqd val) 
+            { 
+                return IsSetLocateReqd();
+            }
+            
+            public bool IsSetLocateReqd() 
+            { 
+                return IsSetField(Tags.LocateReqd);
+            }
             public class NoContraBrokersGroup : Group
             {
                 public static int[] fieldOrder = {Tags.ContraBroker, Tags.ContraTrader, Tags.ContraTradeQty, Tags.ContraTradeTime, 0};
